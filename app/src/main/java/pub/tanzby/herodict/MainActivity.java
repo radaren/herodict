@@ -78,8 +78,7 @@ public class MainActivity extends AppCompatActivity {
             public boolean onQueryTextChange(String newText) {
 
                 if (!TextUtils.isEmpty(newText)){
-                    mListView.setFilterText(newText);
-
+                    mAdapter.getFilter().filter(newText);
                 }else{
                     mListView.clearTextFilter();
                 }
@@ -101,20 +100,24 @@ public class MainActivity extends AppCompatActivity {
                 {
                     new Handler().postDelayed(new Runnable(){
                         public void run() {
-                            mListView.setVisibility(View.VISIBLE);
-                            tv_title.setVisibility(View.INVISIBLE);
-                            ObjectAnimator translationUp = ObjectAnimator.ofFloat(mSearchView, "Y",
+                            ObjectAnimator translationUp1 = ObjectAnimator.ofFloat(mSearchView, "Y",
                                     mSearchView.getY(),marginToTop);
-                            translationUp.setDuration(timeIntervel);
-
                             ObjectAnimator translationUp2 = ObjectAnimator.ofFloat(mListView, "Y",
                                     mListView.getY(),marginToTop+mSearchView.getHeight());
-                            translationUp2.setDuration(timeIntervel);
-                            translationUp.setInterpolator(new DecelerateInterpolator());
-                            translationUp2.setInterpolator(new DecelerateInterpolator());
-                            translationUp2.start();
-                            translationUp.start();
+                            ObjectAnimator translationUp3 = ObjectAnimator.ofFloat(tv_title,"alpha",1,0);
 
+                            translationUp3.setDuration(timeIntervel);
+                            translationUp1.setDuration(timeIntervel);
+                            translationUp2.setDuration(timeIntervel);
+                            translationUp1.setInterpolator(new DecelerateInterpolator());
+                            translationUp2.setInterpolator(new DecelerateInterpolator());
+                            translationUp3.setInterpolator(new DecelerateInterpolator());
+                            translationUp3.setDuration(timeIntervel);
+                            translationUp2.start();
+                            translationUp1.start();
+                            translationUp3.start();
+
+                            mListView.setVisibility(View.VISIBLE);
                         }
                     }, 200);
 
@@ -123,22 +126,19 @@ public class MainActivity extends AppCompatActivity {
                 {
                     ObjectAnimator translationUp = ObjectAnimator.ofFloat(mSearchView, "Y",
                             mSearchView.getY(),init_pos_y);
-                    translationUp.setDuration(timeIntervel);
-
-                    mListView.setVisibility(View.INVISIBLE);
                     ObjectAnimator translationUp2 = ObjectAnimator.ofFloat(mListView, "Y",
                             mListView.getY(),init_pos_y+mSearchView.getHeight());
+                    ObjectAnimator translationUp3 = ObjectAnimator.ofFloat(tv_title,"alpha",0,1);
+
+                    translationUp3.setDuration(timeIntervel);
+                    translationUp.setDuration(timeIntervel);
                     translationUp2.setDuration(timeIntervel);
 
                     translationUp.start();
                     translationUp2.start();
+                    translationUp3.start();
 
-                    new Handler().postDelayed(new Runnable() {
-
-                        public void run() {
-                            tv_title.setVisibility(View.VISIBLE);
-                        }
-                    },800);
+                    mListView.setVisibility(View.INVISIBLE);
 
                 }
             }
