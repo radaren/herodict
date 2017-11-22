@@ -9,6 +9,7 @@
         <!--searchview 文字及图标颜色-->
         <item name="android:textColorPrimary">@color/colorFont</item>
         <item name="android:textColorHint">@color/colorPrimaryDark</item>
+        <item name="android:textColorSecondary">@color/colorFont</item>
     </style>
 
 

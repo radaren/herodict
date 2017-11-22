@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private SearchView mSearchView;
     private ListView mListView;
     private TextView tv_title;
-    private final String[] heroNames={"aaaaaa","bbbbbb","cccccc"};
+    private final String[] heroNames={"aaaaaa","bbbbbb","cccccc","dddd","eeeee","fffffff"};
     private ArrayAdapter mAdapter;
     private final float marginToTop = 50;
     private final int   timeIntervel=400;

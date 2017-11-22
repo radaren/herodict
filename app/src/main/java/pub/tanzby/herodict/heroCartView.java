@@ -1,5 +1,6 @@
 package pub.tanzby.herodict;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -66,6 +67,8 @@ public class heroCartView extends AppCompatActivity {
                     @Override
                     public void onItemClick(View view, int position) {
                         Toast.makeText(heroCartView.this,"短按",Toast.LENGTH_SHORT).show();
+                        Intent newIntent = new Intent(heroCartView.this,heroDetailActivity.class);
+                        startActivity(newIntent);
                     }
 
                     @Override
