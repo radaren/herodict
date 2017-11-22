@@ -51,9 +51,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void  init()
     {
-        tv_title = (TextView) findViewById(R.id.tv_main_title);
-        mSearchView = (SearchView) findViewById(R.id.sv_searchHero);
-        mListView = (ListView) findViewById(R.id.lv_searchHeroResult);
+        tv_title = findViewById(R.id.tv_main_title);
+        mSearchView = findViewById(R.id.sv_searchHero);
+        mListView = findViewById(R.id.lv_searchHeroResult);
         mAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, heroNames);
 
         mDetector = new GestureDetectorCompat(this, new MyGestureListener());

@@ -66,7 +66,7 @@ public class RCAdapter extends RecyclerView.Adapter<RCAdapter.VH> {
 
             // TODO: instantiating an object
 
-            tv_name=(TextView) itemView.findViewById(R.id.tv_name);
+            tv_name= itemView.findViewById(R.id.tv_name);
 
         }
     }

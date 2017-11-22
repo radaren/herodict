@@ -28,8 +28,8 @@ public class heroCartView extends AppCompatActivity {
 
         element_binding();
 
-        heroList = Hero.getDataFromXMLSource(this,R.xml.test_hero);
-
+        //heroList = Hero.getDataFromXMLSource(this,R.xml.test_hero);
+        heroList = Hero.getDataFromJsonSource(this,"products.json");
         even_binding();
 
 
@@ -37,7 +37,7 @@ public class heroCartView extends AppCompatActivity {
     public void element_binding()
     {
         /*set RecyclerView*/
-        mRecycleView = (RecyclerView) findViewById(R.id.id_recyclerview);
+        mRecycleView = findViewById(R.id.id_recyclerview);
         mRecycleView.setLayoutManager(new LinearLayoutManager(
                 this, LinearLayoutManager.HORIZONTAL, false));
         new LinearSnapHelper().attachToRecyclerView(mRecycleView);

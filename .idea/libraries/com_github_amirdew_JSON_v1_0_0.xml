@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="com.github.amirdew:JSON-v1.0.0">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/JSON-v1.0.0.aar/c6fd7017a50289e9adf8bca412269cd3/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/JSON-v1.0.0.aar/c6fd7017a50289e9adf8bca412269cd3/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

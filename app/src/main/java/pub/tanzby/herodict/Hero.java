@@ -1,14 +1,21 @@
 package pub.tanzby.herodict;
 
 import android.content.Context;
+import android.content.res.AssetManager;
 import android.content.res.XmlResourceParser;
+import android.util.Log;
 
 import org.litepal.crud.DataSupport;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
+
+import eu.amirs.JSON;
 
 /**
  * Created by tanzb on 2017/11/20 0020.
@@ -18,7 +25,7 @@ public class Hero extends DataSupport {
     private Integer id;
     private String name;
     private String pic;
-    private Integer votep;
+    private String votep;
     private String pinyin;
     private String shengsi;
     private String sex;
@@ -31,7 +38,73 @@ public class Hero extends DataSupport {
     Hero(){
 
     }
+    private static String readFileFromAsset(Context context,String fileName){
+        BufferedReader reader = null;
+        InputStream inputStream = null;
+        StringBuilder builder = new StringBuilder();
+        try{
 
+            AssetManager assetManager = context.getAssets();
+            inputStream=  assetManager.open(fileName);
+            reader = new BufferedReader(new InputStreamReader(inputStream));
+
+            String line;
+            while((line = reader.readLine()) != null)
+            {
+                Log.d("READ",line);
+                builder.append(line);
+                builder.append("\n");
+            }
+        } catch (IOException ioe){
+            ioe.printStackTrace();
+        } finally {
+
+            if(inputStream != null)
+            {
+                try {
+                    inputStream.close();
+                } catch (IOException ioe){
+                    ioe.printStackTrace();
+                }
+            }
+
+            if(reader != null)
+            {
+                try {
+                    reader.close();
+                } catch (IOException ioe)
+                {
+                    ioe.printStackTrace();
+                }
+            }
+        }
+        return builder.toString();
+    }
+    public static ArrayList<Hero> getDataFromJsonSource(Context context,String fileName)
+    {
+        JSON heroes = new JSON(readFileFromAsset(context,"products.json")).key("products");
+        Log.d("READ!!!",String.format("\n\n product[%d]", heroes.count()));
+        ArrayList<Hero> heroList = new ArrayList<>();
+        for(int idx = 0; idx < heroes.count(); ++idx)
+        {
+            Hero nowHero = new Hero();
+            JSON heroInfo = heroes.index(idx);
+            nowHero.id = heroInfo.key("id").intValue();
+            nowHero.cata=heroInfo.key("cata").stringValue();
+            nowHero.content=heroInfo.key("content").stringValue();
+            nowHero.jiguan=heroInfo.key("jiguan").stringValue();
+            nowHero.name=heroInfo.key("name").stringValue();
+            nowHero.pic=heroInfo.key("pic").stringValue();
+            nowHero.pinyin=heroInfo.key("pinyin").stringValue();
+            nowHero.sex=heroInfo.key("sex").stringValue();
+            nowHero.shengsi=heroInfo.key("shengsi").stringValue();
+            nowHero.votep=heroInfo.key("votep").stringValue();
+            nowHero.zhengshi=heroInfo.key("zhengshi").stringValue();
+            nowHero.zi=heroInfo.key("zi").stringValue();
+            heroList.add(nowHero);
+        }
+        return heroList;
+    }
     public static ArrayList<Hero> getDataFromXMLSource(Context context, int xmlFilePath)
     {
         Hero h = null;
@@ -99,11 +172,11 @@ public class Hero extends DataSupport {
         this.pic = pic;
     }
 
-    public Integer getVotep() {
+    public String getVotep() {
         return votep;
     }
 
-    public void setVotep(Integer votep) {
+    public void setVotep(String votep) {
         this.votep = votep;
     }
 
