@@ -2,6 +2,7 @@ package pub.tanzby.herodict;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -9,6 +10,7 @@ import android.support.v7.widget.LinearSnapHelper;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -43,7 +45,6 @@ public class heroCartView extends AppCompatActivity {
         new LinearSnapHelper().attachToRecyclerView(mRecycleView);
     }
 
-
     public void even_binding()
     {
         mRecycleView.smoothScrollToPosition(1);
@@ -66,8 +67,9 @@ public class heroCartView extends AppCompatActivity {
                 new RCAdapter.OnItemClickLitener() {
                     @Override
                     public void onItemClick(View view, int position) {
-                        Toast.makeText(heroCartView.this,"短按",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(heroCartView.this,"短按"+position,Toast.LENGTH_SHORT).show();
                         Intent newIntent = new Intent(heroCartView.this,heroDetailActivity.class);
+                        newIntent.putExtra("Hero", (Parcelable)heroList.get(position));
                         startActivity(newIntent);
                     }
 
