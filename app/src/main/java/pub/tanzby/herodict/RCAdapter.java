@@ -9,7 +9,6 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-
 /**
  * Created by tanzb on 2017/10/20 0020.
  */
@@ -24,19 +23,14 @@ public class RCAdapter extends RecyclerView.Adapter<RCAdapter.VH> {
     {
         return new VH(LayoutInflater
                 .from(mContext)
-                .inflate(R.layout.items_view_for_rc, parent,false));
+                .inflate(R.layout.item_hero_cart_view, parent,false));
     }
 
     @Override
     public void onBindViewHolder(final VH holder, int position) {
 
         // TODO: operations for object in holder
-        holder.tv_name.setText( itemList.get(position).name);
-        holder.tv_hometown.setText(itemList.get(position).hometown+"人");
-        holder.tv_birthday.setText(itemList.get(position).birthDay+"生");
-        holder.tv_belong.setText(itemList.get(position).belong);
-        holder.tv_brief.setText( itemList.get(position).brieftext);
-        holder.tv_gender.setText(itemList.get(position).gender);
+        holder.tv_name.setText( itemList.get(position).getName());
 
         if (mOnItemClickLitener != null) {
             holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -65,11 +59,6 @@ public class RCAdapter extends RecyclerView.Adapter<RCAdapter.VH> {
         // TODO: including an object
 
         TextView tv_name;
-        TextView tv_hometown;
-        TextView tv_birthday;
-        TextView tv_belong;
-        TextView tv_brief;
-        TextView tv_gender;
 
 
         VH(View itemView) {
@@ -78,11 +67,6 @@ public class RCAdapter extends RecyclerView.Adapter<RCAdapter.VH> {
             // TODO: instantiating an object
 
             tv_name=(TextView) itemView.findViewById(R.id.tv_name);
-            tv_hometown=(TextView) itemView.findViewById(R.id.tv_hometown);
-            tv_birthday=(TextView) itemView.findViewById(R.id.tv_birthday);
-            tv_belong=(TextView) itemView.findViewById(R.id.tv_belong);
-            tv_brief=(TextView) itemView.findViewById(R.id.tv_brief);
-            tv_gender=(TextView) itemView.findViewById(R.id.tv_gender);
 
         }
     }
@@ -98,6 +82,7 @@ public class RCAdapter extends RecyclerView.Adapter<RCAdapter.VH> {
         void onItemClick(View view, int position);
         void onItemLongClick(View view , int position);
     }
+
     private OnItemClickLitener mOnItemClickLitener;
 
     public void setOnItemClickLitener(OnItemClickLitener mOnItemClickLitener)
