@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/newhero"
     tools:context="pub.tanzby.herodict.heroEditActivity"
     >
 
@@ -42,22 +41,25 @@
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="72dp"
         android:layout_height="24dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="8dp"
         android:progressDrawable="@drawable/ic_chevron_right_grey_700_24dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imgbnt_comfirm"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/imgbnt_comfirm" />
 
     <ProgressBar
         android:id="@+id/progressBar_top"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="24dp"
         android:layout_height="24dp"
-        android:progressDrawable="@drawable/ic_chevron_right_black_24dp"
-        app:layout_constraintStart_toStartOf="@+id/progressBar_buttom"
-        app:layout_constraintTop_toTopOf="@+id/progressBar_buttom" />
+        app:layout_constraintLeft_toLeftOf="@id/progressBar_buttom"
+        app:layout_constraintTop_toTopOf="@id/progressBar_buttom"
+        app:layout_constraintBottom_toBottomOf="@id/progressBar_buttom"
+        android:progressDrawable="@drawable/ic_chevron_right_black_24dp"/>
 
 
 </android.support.constraint.ConstraintLayout>

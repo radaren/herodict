@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private SearchView mSearchView;
     private ListView mListView;
     private TextView tv_title;
-    private final String[] heroNames={"aaaaaa","bbbbbb","cccccc","dddd","eeeee","fffffff"};
+    private String[] heroNames={"aaaaaa","bbbbbb","cccccc","dddd","eeeee","fffffff"};
     private ArrayAdapter mAdapter;
     private final float marginToTop = 50;
     private final int   timeIntervel=400;
@@ -42,7 +42,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         init();
         element_setting();
         even_binding();

@@ -5,17 +5,105 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@mipmap/edit_other"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
     tools:context="pub.tanzby.herodict.editFragm_1">
 
+    <EditText
+        android:id="@+id/ed_lifetime_end"
+        android:layout_width="71dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="24dp"
+        android:background="@drawable/shadow"
+        android:gravity="center"
+        android:inputType="number"
+        android:text="210"
+        android:textColor="@color/colorAccent"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/ed_lifetime_start"
+        app:layout_constraintTop_toTopOf="@+id/tv_label_shengzu" />
+
+    <EditText
+        android:id="@+id/ed_lifetime_start"
+        android:layout_width="71dp"
+        android:layout_height="44dp"
+        android:background="@drawable/shadow"
+        android:gravity="center"
+        android:inputType="number"
+        android:text="172"
+        android:textColor="@color/colorAccent"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/ed_gender"
+        app:layout_constraintTop_toTopOf="@+id/tv_label_shengzu" />
+
     <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/tv_label_shengzu"
+        android:layout_width="80dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="36dp"
+        android:gravity="center"
+        android:text="生卒"
         android:textColor="@color/colorFont"
-        android:textSize="36sp"
-        android:text="Some attr setting block will be here"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/tv_label_gender"
+        app:layout_constraintTop_toBottomOf="@+id/tv_label_gender" />
+
+    <TextView
+        android:id="@+id/tv_label_zhuxiao"
+        android:layout_width="80dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="36dp"
+        android:gravity="center"
+        android:text="主效"
+        android:textColor="@color/colorFont"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/tv_label_gender"
+        app:layout_constraintTop_toBottomOf="@+id/tv_label_shengzu" />
+
+    <TextView
+        android:id="@+id/ed_zhuxiao"
+        android:layout_width="100dp"
+        android:layout_height="45dp"
+        android:background="@drawable/shadow"
+        android:gravity="center"
+        android:text="蜀"
+        android:textColor="@color/colorAccent"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/ed_gender"
+        app:layout_constraintTop_toTopOf="@+id/tv_label_zhuxiao" />
+
+    <TextView
+        android:id="@+id/ed_gender"
+        android:layout_width="100dp"
+        android:layout_height="45dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/shadow"
+        android:gravity="center"
+        android:text="男"
+        android:textColor="@color/colorAccent"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tv_label_gender"
+        app:layout_constraintTop_toTopOf="@+id/tv_label_gender" />
+
+    <TextView
+        android:id="@+id/tv_label_gender"
+        android:layout_width="80dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="180dp"
+        android:gravity="center"
+        android:text="性别"
+        android:textColor="@color/colorFont"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>

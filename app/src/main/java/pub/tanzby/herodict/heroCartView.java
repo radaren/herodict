@@ -15,6 +15,7 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,6 +26,11 @@ public class heroCartView extends AppCompatActivity {
     RecyclerView mRecycleView;
     RCAdapter     mAdapter;
     Integer current_item_id;
+    
+    SeekBar seekbar;
+    TextView cur_pos_tv;
+    int is_moving_to = 0;
+    boolean is_moving = false;
 
     ArrayList<Hero> heroList;
 
@@ -35,17 +41,22 @@ public class heroCartView extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hero_cart_view);
 
-        element_binding();
+        init();
 
         heroList = Hero.getDataFromXMLSource(this,R.xml.test_hero);
+
+        seekbar.setMax(heroList.size()-1);
 
         even_binding();
 
 
     }
-    public void element_binding()
+    public void init()
     {
         /*set RecyclerView*/
+        seekbar = (SeekBar) findViewById(R.id.sk_for_card_view);
+        cur_pos_tv  =(TextView) findViewById(R.id.tv_cur_pos);
+        
         mRecycleView = (RecyclerView) findViewById(R.id.id_recyclerview);
         mRecycleView.setLayoutManager(new LinearLayoutManager(
                 this, LinearLayoutManager.HORIZONTAL, false));
@@ -55,6 +66,9 @@ public class heroCartView extends AppCompatActivity {
 
         new LinearSnapHelper().attachToRecyclerView(mRecycleView);
     }
+
+
+
 
 
     public void even_binding()
@@ -67,11 +81,10 @@ public class heroCartView extends AppCompatActivity {
                 super.onScrolled(recyclerView, dx, dy);
                 /*update current item id*/
                 LinearLayoutManager layoutManager = (LinearLayoutManager) mRecycleView.getLayoutManager();
-                View firstVisibleItem = mRecycleView.getChildAt(0);
                 int firstItemPosition = layoutManager.findFirstVisibleItemPosition();
-                int itemWidth = firstVisibleItem.getWidth();
-                int firstItemBottom = layoutManager.getDecoratedRight(firstVisibleItem);
-                current_item_id = tool_for_project.px2dip(heroCartView.this, (firstItemPosition+1)*itemWidth-firstItemBottom);
+                current_item_id = firstItemPosition+1;
+                cur_pos_tv.setText(current_item_id+"");
+                if(!is_moving) seekbar.setProgress(current_item_id);
             }
         });
         mAdapter = new RCAdapter(this, heroList);
@@ -87,6 +100,8 @@ public class heroCartView extends AppCompatActivity {
                     @Override
                     public void onItemLongClick(View view, final int position) {
                         Toast.makeText(heroCartView.this,"长按",Toast.LENGTH_SHORT).show();
+
+                        // TODO  删操作
                     }
                 }
         );
@@ -97,6 +112,24 @@ public class heroCartView extends AppCompatActivity {
             public void onClick(View v) {
                 Intent newIntent = new Intent(heroCartView.this,heroEditActivity.class);
                 startActivity(newIntent);
+            }
+        });
+
+        seekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                cur_pos_tv.setText(progress+"");
+                mRecycleView.smoothScrollToPosition(seekBar.getProgress());
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                is_moving = true;
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                is_moving = false;
             }
         });
     }

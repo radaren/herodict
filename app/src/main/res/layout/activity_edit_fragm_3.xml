@@ -5,18 +5,32 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@mipmap/edit_content"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
     tools:context="pub.tanzby.herodict.editFragm_1">
 
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <EditText
+        android:id="@+id/ed_content"
+        android:layout_width="344dp"
+        android:layout_height="400dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/shadow"
+        android:gravity="top"
+        android:lineSpacingExtra="10sp"
+        android:paddingLeft="10sp"
+        android:paddingRight="10sp"
+        android:paddingTop="18sp"
+        android:scrollbars="vertical"
+        android:text="        曹邵，男，字伯南，为史实人物，豫州沛国谯(安徽亳州市亳县)人。曹操族人。初平中，曹操起兵，邵募徒众，从操周旋，为州郡所杀。其子秦真，后被曹操收为义子。但另据裴松之注引《魏略》的记载，曹真本姓秦，其父秦邵（字伯南）素来与曹操相善。兴平末年，袁术部曲与曹操在豫州交战，曹操一次外出时侦察时，遭遇袁术部曲追杀，幸得曹真之父冒名顶替，袁术部曲误以为他就是曹操，遂杀之而去，使曹操躲过一劫。由此曹操想到秦邵恩德，因此曹操收养曹真，变易其姓，才转姓曹。两种说法莫衷一是。"
         android:textColor="@color/colorFont"
-        android:textSize="36sp"
-        android:text="A Text Edit block will be here"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        android:textIsSelectable="false"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:typeface="normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 

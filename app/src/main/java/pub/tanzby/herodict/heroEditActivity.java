@@ -4,6 +4,7 @@ import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.ContentResolver;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
@@ -30,6 +31,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
@@ -124,6 +126,7 @@ public class heroEditActivity extends AppCompatActivity implements editFragm_1.O
         mViewPager.setAdapter(mFragmentAdapter);
         mViewPager.setOffscreenPageLimit(3);
 
+
         mViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener()
         {
             @Override
@@ -133,6 +136,9 @@ public class heroEditActivity extends AppCompatActivity implements editFragm_1.O
                 para.width = tool_for_project.dip2px(heroEditActivity.this,24.0f)*(position+1);
                 prog_top.setLayoutParams(para);
                 img_bnt_comfirm.setVisibility( position == 2? View.VISIBLE:View.INVISIBLE);
+                InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                assert imm != null;
+                imm.hideSoftInputFromWindow(heroEditActivity.this.getCurrentFocus().getWindowToken(), 0);
             }
             @Override
             public void onPageScrolled(int arg0, float arg1, int arg2){ }

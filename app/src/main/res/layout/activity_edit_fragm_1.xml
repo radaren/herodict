@@ -5,12 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@mipmap/edit_name"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
     tools:context="pub.tanzby.herodict.editFragm_1">
 
 
     <EditText
         android:id="@+id/ed_name"
-        style="@style/Widget.AppCompat.EditText"
         android:layout_width="142dp"
         android:layout_height="44dp"
         android:layout_marginBottom="8dp"
