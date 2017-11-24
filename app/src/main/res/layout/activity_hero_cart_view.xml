@@ -1,20 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="pub.tanzby.herodict.MainActivity"
-    android:background="@color/colorPrimaryDark">
+    android:background="@mipmap/herocart">
 
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/id_recyclerview"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="30dp"
-        android:layout_marginTop="30dp">
-    </android.support.v7.widget.RecyclerView>
+        android:layout_height="400dp"
+        android:layout_marginBottom="32dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/imgbnt_add_new_hero"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="@drawable/ic_add_black_48dp"
+        android:elevation="0dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/id_recyclerview" />
 
 
-</LinearLayout>
+</android.support.constraint.ConstraintLayout>

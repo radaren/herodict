@@ -5,4 +5,5 @@
     <color name="colorAccent">#ffd77b</color>
     <color name="colorFont">#fffce9</color>
     <color name="cartBackground">#c4fd5590</color>
+    <color name="colorDialogbackgound">#a1ffffff</color>
 </resources>

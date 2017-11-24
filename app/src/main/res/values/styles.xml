@@ -12,5 +12,12 @@
         <item name="android:textColorSecondary">@color/colorFont</item>
     </style>
 
+    <style name="AlertDialog" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:textColorPrimary">#222</item>
+        <item name="android:textColorHint">@color/colorPrimaryDark</item>
+        <item name="android:textColorSecondary">@color/colorFont</item>
+    </style>
+
+
 
 </resources>

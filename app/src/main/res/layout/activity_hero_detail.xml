@@ -5,7 +5,7 @@
     android:id="@+id/activity_hero_detail"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/wei"
+    android:background="@mipmap/wei"
     tools:context="pub.tanzby.herodict.heroDetailActivity">
 
     <ImageButton
@@ -64,4 +64,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bnt_img_gravter_detail" />
+
 </android.support.constraint.ConstraintLayout>

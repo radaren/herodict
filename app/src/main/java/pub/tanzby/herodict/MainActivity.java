@@ -55,7 +55,6 @@ public class MainActivity extends AppCompatActivity {
         mSearchView = (SearchView) findViewById(R.id.sv_searchHero);
         mListView = (ListView) findViewById(R.id.lv_searchHeroResult);
         mAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, heroNames);
-
         mDetector = new GestureDetectorCompat(this, new MyGestureListener());
     }
 
