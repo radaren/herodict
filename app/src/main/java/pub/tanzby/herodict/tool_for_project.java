@@ -8,6 +8,8 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Environment;
 import android.support.v4.app.ActivityCompat;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -100,5 +102,19 @@ public class tool_for_project {
     public static int dip2px(Context context, float dpValue) {
         final float scale = context.getResources().getDisplayMetrics().density;
         return (int) (dpValue * scale + 0.5f);
+    }
+    public static void SoftKeyBoardOpenOrHodden(Context context, View view, boolean is_open)
+    {
+        InputMethodManager imm = (InputMethodManager)
+                context.getSystemService(Context.INPUT_METHOD_SERVICE);
+        assert imm != null;
+        if (is_open)
+        {
+            imm.showSoftInput(view,InputMethodManager.SHOW_FORCED);
+        }
+        else
+        {
+            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
     }
 }

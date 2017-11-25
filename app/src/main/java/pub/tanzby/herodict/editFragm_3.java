@@ -39,18 +39,6 @@ public class editFragm_3 extends Fragment {
 
             editText = (EditText) frameView.findViewById(R.id.ed_content);
 
-            final ConstraintLayout mainLayout = (ConstraintLayout) editText.getRootView();
-
-            mainLayout.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    InputMethodManager imm = (InputMethodManager)
-                            getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
-                    assert imm != null;
-                    imm.hideSoftInputFromWindow(mainLayout.getWindowToken(), 0);
-                }
-            });
-
 
             final ConstraintLayout root = (ConstraintLayout) editText.getRootView();
             root.setOnClickListener(new View.OnClickListener() {
@@ -64,26 +52,20 @@ public class editFragm_3 extends Fragment {
             });
 
             editText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-                private int moveDis = tool_for_project.dip2px(getContext(),180);
-                private static final int timeIntervel = 500;
+                private final int after_height = tool_for_project.dip2px(getContext(),190);
+                private final int origin_height = tool_for_project.dip2px(getContext(),420);
+                private final int timeIntervel = 400;
                 @Override
                 public void onFocusChange(View v, boolean hasFocus) {
                     ValueAnimator f = null;
                     if (hasFocus)
                     {
-                        f = ValueAnimator.ofInt(
-                        tool_for_project.dip2px(getContext(),400),
-                        tool_for_project.dip2px(getContext(),200));
+                        f = ValueAnimator.ofInt(v.getHeight(),after_height);
                     }
                     else
                     {
-                        f = ValueAnimator.ofInt(
-                                tool_for_project.dip2px(getContext(),200),
-                                tool_for_project.dip2px(getContext(),400));
-                        InputMethodManager imm = (InputMethodManager)
-                                getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
-                        assert imm != null;
-                        imm.hideSoftInputFromWindow(root.getWindowToken(), 0);
+                        f = ValueAnimator.ofInt(v.getHeight(),origin_height);
+                        tool_for_project.SoftKeyBoardOpenOrHodden(getContext(),root,false);
                     }
 
                     f.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {

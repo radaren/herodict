@@ -136,9 +136,7 @@ public class heroEditActivity extends AppCompatActivity implements editFragm_1.O
                 para.width = tool_for_project.dip2px(heroEditActivity.this,24.0f)*(position+1);
                 prog_top.setLayoutParams(para);
                 img_bnt_comfirm.setVisibility( position == 2? View.VISIBLE:View.INVISIBLE);
-                InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-                assert imm != null;
-                imm.hideSoftInputFromWindow(heroEditActivity.this.getCurrentFocus().getWindowToken(), 0);
+                tool_for_project.SoftKeyBoardOpenOrHodden(getBaseContext(),prog_top.getRootView(),false);
             }
             @Override
             public void onPageScrolled(int arg0, float arg1, int arg2){ }

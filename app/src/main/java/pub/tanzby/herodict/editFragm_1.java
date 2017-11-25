@@ -98,6 +98,4 @@ public class editFragm_1 extends Fragment {
                     + " must implement OnHeadlineSelectedListener");
         }
     }
-
-
 }

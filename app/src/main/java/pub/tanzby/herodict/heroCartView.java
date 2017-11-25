@@ -79,10 +79,9 @@ public class heroCartView extends AppCompatActivity {
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
 
                 super.onScrolled(recyclerView, dx, dy);
-                /*update current item id*/
-                LinearLayoutManager layoutManager = (LinearLayoutManager) mRecycleView.getLayoutManager();
-                int firstItemPosition = layoutManager.findFirstVisibleItemPosition();
-                current_item_id = firstItemPosition+1;
+                LinearLayoutManager layoutManager = 
+                    (LinearLayoutManager) mRecycleView.getLayoutManager();
+                current_item_id = layoutManager.findFirstVisibleItemPosition()+1;
                 cur_pos_tv.setText(current_item_id+"");
                 if(!is_moving) seekbar.setProgress(current_item_id);
             }

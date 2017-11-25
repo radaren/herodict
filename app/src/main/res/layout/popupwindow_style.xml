@@ -13,9 +13,9 @@
         android:gravity="center"
         android:text="编辑"
         android:textColor="#222"
-        android:textSize="18sp"
+        android:textSize="16sp"
         android:textStyle="bold"
-        android:typeface="serif" />
+        android:typeface="normal" />
 
     <TextView
         android:id="@+id/tv_pop_menu_delete"
@@ -25,9 +25,9 @@
         android:gravity="center"
         android:text="删除"
         android:textColor="#f51"
-        android:textSize="18sp"
+        android:textSize="16sp"
         android:textStyle="bold"
-        android:typeface="serif" />
+        android:typeface="normal" />
 
     <TextView
         android:id="@+id/tv_pop_menu_cancel"
@@ -37,8 +37,8 @@
         android:gravity="center"
         android:text="取消"
         android:textColor="#999"
-        android:textSize="18sp"
+        android:textSize="16sp"
         android:textStyle="bold"
-        android:typeface="serif" />
+        android:typeface="normal" />
 
 </LinearLayout>
