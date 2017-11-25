@@ -416,6 +416,7 @@ startActivityForResult(intent, GALLERY_CODE);
 
 * 父Activity中获取Fragment中的控件
 * onFling OnClick 冲突
+* 点击SearchView的任何地方都
 
 
 

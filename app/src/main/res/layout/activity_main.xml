@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="pub.tanzby.herodict.MainActivity"
-    android:background="@mipmap/main">
+    android:background="@mipmap/main"
+    android:id="@+id/ly_main">
 
 
     <TextView
@@ -25,6 +26,7 @@
 
     <SearchView
         android:id="@+id/sv_searchHero"
+        android:clickable="true"
         android:layout_width="321dp"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"

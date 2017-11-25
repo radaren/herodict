@@ -4,6 +4,7 @@ import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Handler;
+import android.support.constraint.ConstraintLayout;
 import android.support.v4.view.GestureDetectorCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -67,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
         mListView.setVisibility(View.INVISIBLE);
         mListView.setAdapter(mAdapter);
         mListView.setTextFilterEnabled(true);
+
     }
 
     private void even_binding()
@@ -75,6 +77,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(View view, int position) {
                 Toast.makeText(view.getContext(),mAdapter.getItem(position).getName(),Toast.LENGTH_SHORT).show();
+            }
+        });
+        mSearchView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mSearchView.setIconified(false);
             }
         });
 
@@ -95,6 +103,7 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
+        
 
 
         mSearchView.setOnQueryTextFocusChangeListener(new View.OnFocusChangeListener()
