@@ -111,18 +111,14 @@ public class heroEditActivity extends AppCompatActivity implements editFragm_1.O
         mFragmentAdapter = new FragmentPagerAdapter(getSupportFragmentManager())
         {
             @Override
-            public int getCount()
-            {
+            public int getCount(){
                 return mFragments.size();
             }
-
             @Override
-            public Fragment getItem(int arg0)
-            {
+            public Fragment getItem(int arg0){
                 return mFragments.get(arg0);
             }
         };
-
         mViewPager.setAdapter(mFragmentAdapter);
         mViewPager.setOffscreenPageLimit(3);
 
@@ -239,10 +235,12 @@ public class heroEditActivity extends AppCompatActivity implements editFragm_1.O
                     bm = (Bitmap) data.getExtras().get("data");
                 }
             }
-            bm = ThumbnailUtils.extractThumbnail(bm,px , px);
-            ed_imgbnt.setImageBitmap(bm);
-            tool_for_project.saveBitmapToLocal(heroEditActivity.this,bm,"1.jpg");
-
+            if (bm!=null)
+            {
+                bm = ThumbnailUtils.extractThumbnail(bm,px , px);
+                ed_imgbnt.setImageBitmap(bm);
+                tool_for_project.saveBitmapToLocal(heroEditActivity.this,bm,"1.jpg");
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }

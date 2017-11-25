@@ -21,6 +21,8 @@ import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 import static java.lang.Math.abs;
 
 
@@ -29,8 +31,8 @@ public class MainActivity extends AppCompatActivity {
     private SearchView mSearchView;
     private ListView mListView;
     private TextView tv_title;
-    private String[] heroNames={"aaaaaa","bbbbbb","cccccc","dddd","eeeee","fffffff"};
-    private ArrayAdapter mAdapter;
+    public  ArrayList<Hero> heroArrayList;
+    private LVAdapter mAdapter;
     private final float marginToTop = 50;
     private final int   timeIntervel=400;
 
@@ -50,12 +52,15 @@ public class MainActivity extends AppCompatActivity {
 
     private void  init()
     {
+        heroArrayList = Hero.getDataFromXMLSource(this,R.xml.test_hero);
         tv_title = (TextView) findViewById(R.id.tv_main_title);
         mSearchView = (SearchView) findViewById(R.id.sv_searchHero);
         mListView = (ListView) findViewById(R.id.lv_searchHeroResult);
-        mAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, heroNames);
+        mAdapter = new LVAdapter(this);
+        mAdapter.setSourceList(heroArrayList);
         mDetector = new GestureDetectorCompat(this, new MyGestureListener());
     }
+
 
     private void element_setting()
     {
@@ -66,6 +71,13 @@ public class MainActivity extends AppCompatActivity {
 
     private void even_binding()
     {
+        mAdapter.setOnItemClickLitener(new LVAdapter.OnItemClickLitener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                Toast.makeText(view.getContext(),mAdapter.getItem(position).getName(),Toast.LENGTH_SHORT).show();
+            }
+        });
+
 
         mSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override

@@ -34,12 +34,8 @@ public class editFragm_3 extends Fragment {
     {
         if (frameView == null)
         {
-
             frameView = inflater.inflate(R.layout.activity_edit_fragm_3, container, false);
-
             editText = (EditText) frameView.findViewById(R.id.ed_content);
-
-
             final ConstraintLayout root = (ConstraintLayout) editText.getRootView();
             root.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -58,12 +54,10 @@ public class editFragm_3 extends Fragment {
                 @Override
                 public void onFocusChange(View v, boolean hasFocus) {
                     ValueAnimator f = null;
-                    if (hasFocus)
-                    {
+                    if (hasFocus) {
                         f = ValueAnimator.ofInt(v.getHeight(),after_height);
                     }
-                    else
-                    {
+                    else {
                         f = ValueAnimator.ofInt(v.getHeight(),origin_height);
                         tool_for_project.SoftKeyBoardOpenOrHodden(getContext(),root,false);
                     }
@@ -79,17 +73,9 @@ public class editFragm_3 extends Fragment {
                             editText.setLayoutParams(para);
                         }
                     });
-
-                    f.setDuration(timeIntervel);
-                    f.start();
-
-
+                    f.setDuration(timeIntervel).start();
                 }
             });
-
-
-
-
         }
         return  frameView;
     }

@@ -56,40 +56,29 @@ public class tool_for_project {
         }
     }
 
-    public static boolean saveBitmapToLocal(Context context,Bitmap bitmap,String filename)
-    {
-        String rootPath = Environment.getExternalStorageDirectory().getAbsolutePath()
-                +context.getString(R.string.storage_folder)+"/";
-        filename = rootPath+filename;
-        File file = new File(rootPath);
-        file.mkdirs(); //创建文件夹
+    public static boolean saveBitmapToLocal(Context context,Bitmap bitmap,String filename){
+        String rootPath = Environment.getExternalStorageDirectory()
+                .getAbsolutePath() +context.getString(R.string.storage_folder)+"/";
+        new File(rootPath).mkdirs(); // 如果没有创建文件夹呼吁创建
         FileOutputStream b =null;
         try {
-            b = new FileOutputStream(filename);
+            b = new FileOutputStream(rootPath+filename);
             assert bitmap != null;
             bitmap.compress(Bitmap.CompressFormat.JPEG,100,b);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
             return false;
-        }finally {
-            try {
-                b.flush();
-                b.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-                return false;
-            }
         }
         return true;
     }
 
-    public static Bitmap readBitmapFromLocal(Context context, String filename) throws FileNotFoundException {
-        String rootPath = Environment.getExternalStorageDirectory().getAbsolutePath()
-                +context.getString(R.string.storage_folder)+"/";
-        filename = rootPath+filename;
+    public static Bitmap readBitmapFromLocal(Context context, String filename)
+            throws FileNotFoundException {
+        String rootPath = Environment.getExternalStorageDirectory()
+                .getAbsolutePath()  +context.getString(R.string.storage_folder)+"/";
         File file = new File(rootPath);
         if (file.exists()){
-            FileInputStream f = new FileInputStream(filename);
+            FileInputStream f = new FileInputStream(rootPath+filename);
             return BitmapFactory.decodeStream(f);
         }
         return null;
