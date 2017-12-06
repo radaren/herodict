@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<litepal>
+    <dbname value="heroDB7" ></dbname>
+    <version value="7" ></version>
+    <list>
+        <mapping class="pub.tanzby.herodict.Hero"></mapping>
+
+    </list>
+</litepal>

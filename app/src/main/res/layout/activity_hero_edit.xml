@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="pub.tanzby.herodict.heroEditActivity"
+    >
+
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_hero_edit"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/imgbnt_close"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/ic_close_amber_50_24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/imgbnt_comfirm"
+        android:visibility="invisible"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:layout_marginRight="36dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/ic_check_circle_black_24dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/progressBar_buttom"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="72dp"
+        android:layout_height="24dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:progressDrawable="@drawable/ic_chevron_right_grey_700_24dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imgbnt_comfirm"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imgbnt_comfirm" />
+
+    <ProgressBar
+        android:id="@+id/progressBar_top"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        app:layout_constraintLeft_toLeftOf="@id/progressBar_buttom"
+        app:layout_constraintTop_toTopOf="@id/progressBar_buttom"
+        app:layout_constraintBottom_toBottomOf="@id/progressBar_buttom"
+        android:progressDrawable="@drawable/ic_chevron_right_black_24dp"/>
+
+
+</android.support.constraint.ConstraintLayout>
